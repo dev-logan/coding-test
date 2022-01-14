@@ -3,5 +3,3 @@ function solution(a, b) {
     let day_order = new Date(2016, a-1, b).getDay()
     return days[day_order]
 }
-
-#라라라
