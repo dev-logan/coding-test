@@ -24,7 +24,7 @@ function solution(numbers, hand) {
 
 // 어떤 위치에 L또는 R을 삽입하고 원래 있던 것은 없애주는 함수
 function putFinger(n, finger, array) {
-  // 기존의 'L' 없애기
+  // 기존의 L 또는 R 없애기
   for (let i=0;i<4;i++) {
     let line = array[i]
     for (let j=0;j<3;j++) {
