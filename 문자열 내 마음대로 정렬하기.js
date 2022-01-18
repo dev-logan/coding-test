@@ -13,3 +13,14 @@ function solution(strings, n) {
       return 0;
     })
 }
+
+
+//  간결하게 다시 푼 것
+function solution(strings, n) {
+    return strings.sort(function(a, b) {
+      if (a[n] < b[n]) return -1
+      if (a[n] == b[n]) {
+        if (a < b) return -1
+      }
+    })
+}
