@@ -1,3 +1,55 @@
+function distance(a,b) {
+  let ax = parseInt(a/3)
+  let ay = a%3
+  let bx = parseInt(b/3)
+  let by = b%3
+  return Math.abs(ax-bx)+Math.abs(ay-by)
+}
+
+let lf = 9
+let rf = 11
+
+function solution(numbers, hand) {
+    let answer = ''
+    for (let i=0;i<numbers.length;i++) {
+      let input
+      if (numbers[i] == 0) input = 10
+      else input = numbers[i] - 1
+      if (input==0|input==3|input==6) {
+        lf = input
+        answer += 'L'
+      } else if (input==2|input==5|input==8) {
+        rf = input
+        answer += 'R'
+      } else if (input==1|input==4|input==7|input==10) {
+        if (distance(lf,input) < distance(rf,input)) {
+          lf = input
+          answer += 'L'
+        } else if (distance(lf,input) > distance(rf,input)) {
+          rf = input
+          answer += 'R'
+        } else {
+          if (hand == 'right') {
+            rf = input
+            answer += 'R'
+          } else {
+            lf = input
+            answer += 'L'
+          }
+        }
+      }
+    }
+    return answer
+}
+
+
+
+
+
+
+
+
+// 과거의 풀이
 let initial =[['N','N','N'],['N','N','N'],['N','N','N'],['L','N','R']]
 // 숫자마다의 좌표
 let locations = {1:[0,0],2:[0,1],3:[0,2],4:[1,0],5:[1,1],6:[1,2],7:[2,0],8:[2,1],9:[2,2],0:[3,1]}
