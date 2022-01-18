@@ -6,14 +6,14 @@ function solution(s) {
       let num_word = num_words[i]
       // 각 단어의 모든 index를 찾기 위한 regex
       let regex = new RegExp(num_word,'g')
-      let result, indices = []
-      while ( (result = regex.exec(s)) ) {
+      let result
+      while (result = regex.exec(s)) {
         num_indices[result.index] = i
       }
       // 단어 말고 숫자의 위치도 찾아준다
       let regexn = new RegExp(i,'g')
-      let resultn, indicesn = []
-      while ( (resultn = regexn.exec(s)) ) {
+      let resultn
+      while (resultn = regexn.exec(s)) {
         num_indices[resultn.index] = i
       }
     }
@@ -25,7 +25,7 @@ function solution(s) {
 // 다른 풀이
 function solution(s) {
     let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-    var answer = s;
+    let answer = s;
     
     // 단어로 split하고 join을 하면 split된 자리에 i가 들어간다
     for(let i=0; i< numbers.length; i++) {
