@@ -46,3 +46,35 @@ function solution(genres, plays) {
     }
     return answer
 }
+
+
+
+
+
+// forEach, map, sort, filter를 활용한 다른 풀이
+// key: 장르, value: 장르별 총 플레이 수
+var dic = {};
+genres.forEach((t, i) => {
+  dic[t] = dic[t] ? dic[t] + plays[i] : plays[i];
+});
+
+function solution(genres, plays) {
+  var dupDic = {};
+  return genres
+    // {장르, 카운트, 인덱스}
+    .map((t, i) => ({ genre: t, count: plays[i], index: i }))
+    // 장르는 총 플레이 수로 정렬, 곡 별 플레이 수 정렬, 인덱스로 정렬
+    .sort((a, b) => {
+      if (a.genre !== b.genre) return dic[b.genre] - dic[a.genre];
+      if (a.count !== b.count) return b.count - a.count;
+      return a.index - b.index;
+    })
+    // 장르별로 두개씩만 남김
+    .filter(t => {
+      if (dupDic[t.genre] >= 2) return false;
+      dupDic[t.genre] = dupDic[t.genre] ? dupDic[t.genre] + 1 : 1;
+      return true;
+    })
+    // 인덱스만 추출
+    .map(t => t.index);
+}
