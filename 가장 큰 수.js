@@ -1,3 +1,5 @@
+//https://programmers.co.kr/learn/courses/30/lessons/42746
+
 function solution(numbers) {
   let answer = numbers
   // 각각을 string으로 바꿔서 세개 이어붙인 모양을 바꿈
