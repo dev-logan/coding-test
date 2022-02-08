@@ -11,39 +11,30 @@ const w = (a, b, c) => {
         return x[0] === a && x[1] === b && x[2] === c
     })
 
+    let toPush
     if (findMemory) {
         return findMemory[3]
     } else {
         if (a <= 0 || b <= 0 || c <= 0) {
-            memory.push([a, b, c, 1])
-            return 1
+            toPush = 1
+            memory.push([a, b, c, toPush])
+            return toPush
         } else if (a > 20 || b > 20 || c > 20) {
-            memory.push([a, b, c, w(20, 20, 20)])
-            return w(20, 20, 20)
+            toPush = w(20, 20, 20)
+            memory.push([a, b, c, toPush])
+            return toPush
         } else if (a < b && b < c) {
-            memory.push([
-                a,
-                b,
-                c,
-                w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c),
-            ])
-            return w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c)
+            toPush = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c)
+            memory.push([a, b, c, toPush])
+            return toPush
         } else {
-            memory.push([
-                a,
-                b,
-                c,
-                w(a - 1, b, c) +
-                    w(a - 1, b - 1, c) +
-                    w(a - 1, b, c - 1) -
-                    w(a - 1, b - 1, c - 1),
-            ])
-            return (
+            toPush =
                 w(a - 1, b, c) +
                 w(a - 1, b - 1, c) +
                 w(a - 1, b, c - 1) -
                 w(a - 1, b - 1, c - 1)
-            )
+            memory.push([a, b, c, toPush])
+            return toPush
         }
     }
 }
