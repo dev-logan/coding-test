@@ -42,7 +42,10 @@ const w = (a, b, c) => {
 input.pop()
 const testCases = input.map((x) => x.split(' ')).map((x) => x.map((x) => +x))
 
+let answer = ''
 for (const testCase of testCases) {
     const [a, b, c] = testCase
-    console.log(`w(${a}, ${b}, ${c}) = ${w(a, b, c)}`)
+    answer += `w(${a}, ${b}, ${c}) = ${w(a, b, c)}\n`
 }
+
+console.log(answer)
