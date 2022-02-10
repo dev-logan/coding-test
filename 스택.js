@@ -1,3 +1,6 @@
+
+// https://www.acmicpc.net/problem/10828
+
 const fs = require('fs')
 const input = fs.readFileSync('dev/stdin').toString().trim().split('\n')
 
@@ -11,8 +14,6 @@ const commands = input
         }
         return x
     })
-
-// https://www.acmicpc.net/problem/10828
 
 const array = []
 const results = []
