@@ -93,4 +93,5 @@ for (let i = 0; i < num; i++) {
         minHeap.insert(end)
     }
 }
+console.log(minHeap.items)
 console.log(count)
