@@ -28,7 +28,7 @@ while (input[idx] !== '0 0') {
         seaMap.push(input[++idx].split(' ').map(x => +x))
     }
     idx++
-
+    
     let count = 0
 
     for (let h = 0; h < height; h++) {
