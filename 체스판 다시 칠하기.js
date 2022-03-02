@@ -57,3 +57,4 @@ function repaint(square) {
     }
   }
   return Math.min(countB, countW)
+}
