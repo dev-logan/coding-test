@@ -17,15 +17,36 @@ const graph = test
 		return graph
 	}, {})
 
-console.log(graph)
-
 // DFS
-let toVisit = [v]
-const visited = []
-while (toVisit.length) {
-	const node = toVisit.pop()
-	console.log(node)
-	visited.push(node)
-    const nextnode = graph[node].shift()
-    if (!visited.includes(nextnode)) toVisit.push(nextnode)
+let resultDFS = ''
+let toVisitDFS = [v]
+const visitedDFS = []
+while (toVisitDFS.length) {
+	const node = toVisitDFS.pop()
+	if (!node) continue
+	if (visitedDFS.includes(node)) continue
+	resultDFS += node + ' '
+	visitedDFS.push(node)
+	if (graph[node]) {
+		graph[node].sort((a, b) => b - a)
+		toVisitDFS = [...toVisitDFS, ...graph[node]]
+	}
 }
+console.log(resultDFS.trim())
+
+// BFS
+let resultBFS = ''
+let toVisitBFS = [v]
+const visitedBFS = []
+while (toVisitBFS.length) {
+	const node = toVisitBFS.shift()
+	if (!node) continue
+	if (visitedBFS.includes(node)) continue
+	resultBFS += node + ' '
+	visitedBFS.push(node)
+	if (graph[node]) {
+		graph[node].sort((a, b) => a - b)
+		toVisitBFS = [, ...toVisitBFS, ...graph[node]]
+	}
+}
+console.log(resultBFS.trim())
