@@ -4,13 +4,13 @@ words = ["frodo", "front", "frost", "frozen", "frame", "kakao"]
 queries = ["fro??", "????o", "fr???", "fro???", "pro?"]
 
 # 가사 단어 길이 별로 나누기
-words_by_length = [[] for _ in range(10001)]
-reversed_words_by_length = [[] for _ in range(10001)]
+words_by_length = [[] for _ in range(99999)]
+reversed_words_by_length = [[] for _ in range(99999)]
 for word in words:
     length = len(word)
     words_by_length[length].append(word)
     reversed_words_by_length[length].append(word[::-1])
-for i in range(10001):
+for i in range(99999):
     words_by_length[i].sort()
     reversed_words_by_length[i].sort()
 
