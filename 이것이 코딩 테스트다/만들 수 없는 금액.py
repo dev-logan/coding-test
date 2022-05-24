@@ -1,17 +1,38 @@
+# import sys
+# sys.stdin = open('./dev/stdin', 'r')
+
+# n = int(input())
+# coins = list(map(int, input().split()))
+
+# coins.sort()
+
+# target = 1
+
+# for coin in coins:
+#     if coin <= target:
+#         target += coin
+#     else:
+#         break
+
+# print(target)
+
+
+
+# 2회
 import sys
-sys.stdin = open('./dev/stdin', 'r')
+
+sys.stdin = open("./dev/stdin", "r")
+input = sys.stdin.readline
 
 n = int(input())
-coins = list(map(int, input().split()))
+array = list(map(int, input().split()))
 
-coins.sort()
+array.sort()
 
-target = 1
-
-for coin in coins:
-    if coin <= target:
-        target += coin
-    else:
+available_max = 0
+for coin in array:
+    if coin > available_max + 1:
         break
+    available_max += coin
 
-print(target)
+print(available_max + 1)
